@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-hulk-green: #bfff00;
+  --color-hulk-dark: #0a0a0a;
+  --color-hulk-surface: #141414;
+  --color-hulk-muted: #1e1e1e;
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+@layer base {
+  body {
+    @apply bg-hulk-dark text-white font-sans antialiased selection:bg-hulk-green selection:text-black;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-white mb-2;
+  }
+}
+
+@layer utilities {
+  .text-hulk-glow {
+    text-shadow: 0 0 20px rgba(191, 255, 0, 0.4);
+  }
+  
+  .bg-hulk-glow {
+    box-shadow: 0 0 30px rgba(191, 255, 0, 0.2);
+  }
+  
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .hulk-gradient {
+    background: linear-gradient(135deg, #bfff00 0%, #00ff88 100%);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-hulk-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-hulk-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-hulk-green);
+}
+
+/* GSAP hidden-reveal class */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
